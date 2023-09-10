@@ -42,13 +42,27 @@ def create_new_project(project_name_path: str):
     else:
         print('[PyPulse] Already exists a project with the same name in this path\n')
         exit()
-    
+
     project_name = project_name_path.split(PATH_SEPARATOR)[-1]
 
     server_main = open(
         f'{project_name_path}/{project_name}.py',
         'w'
     )
+
+    server_main_string = """
+from pypulse import Window
+
+
+def main():
+    Window.Load()
+
+
+if __name__ == '__main__':
+    main()
+    """
+
+    server_main.write(server_main_string)
 
     server_main.close()
 

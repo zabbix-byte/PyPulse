@@ -21,7 +21,7 @@
 
 - **Chromium-Based**: PyPulse harnesses the power of the Chromium web engine, ensuring your desktop applications offer a modern and robust web experience.
 
-- **Template-Based Architecture**: Easily create and customize your application by choosing from a range of templates. Tailor your app's appearance and functionality to your specific needs.
+- **Template-Based Architecture**: PyPulse's template system is a powerful feature that empowers you to decouple the presentation layer from the business logic in your web applications. PyPulse follows the DRY (Don't Repeat Yourself) principle and provides you with the capability to craft reusable HTML templates enriched with placeholders for dynamic data using Jinja2.
 
 - **Python-Powered**: PyPulse is written in Python, making it accessible and customizable for Python developers. No need to learn a new language or framework.
 

@@ -34,6 +34,6 @@ PyPulse is licensed under the MIT License. See the [LICENSE](LICENSE) file for d
 
 ## Contact
 
-If you have any questions, suggestions, or feedback, please don't hesitate to reach out to us at [your@email.com](mailto:zabbix@ztrunk.space).
+If you have any questions, suggestions, or feedback, please don't hesitate to reach out to us at [zabbix@ztrunk.space](mailto:zabbix@ztrunk.space).
 
 We hope PyPulse accelerates your desktop application development and simplifies the integration of web content into your Python projects. Happy coding! 😎🚀

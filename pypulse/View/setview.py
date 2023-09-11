@@ -18,7 +18,7 @@ class PathView:
         def wrapper(*args, **kwargs):
             # Access instance and owner (class) here         
             if instance:
-                SetView(self.name, instance, self.path_trigger)
+                pass
             else:
                 print("No instance accessed")
             return self.target_method(instance, *args, **kwargs)

@@ -5,22 +5,30 @@ import ctypes
 from cefpython3 import cefpython as cef
 
 
-class Load():
-    def __init__(self, title: str = 'PyPulse App',
-                 debug: bool = True,
-                 debug_file_name: str = 'debug.log',
-                 window_size_y: int = 1270,
-                 window_size_x: int = 720,
+class Browser():
+    instance = None
+    def __init__(self, title: str,
+                 debug: bool,
+                 debug_file_name: str,
+                 window_size_x: int,
+                 window_size_y: int
                  ) -> None:
 
+        self.title = title
+        self.debug = debug
+        self.debug_file_name = debug_file_name
+        self.window_size_y = window_size_y
+        self.window_size_x = window_size_x
+
         self.check_versions()
+
         sys.excepthook = cef.ExceptHook  # To shutdown all CEF processes on error
 
         settings = {
             'product_version': 'PyPulse/10.00',
-            'debug': debug,
+            'debug': self.debug,
             'log_severity': cef.LOGSEVERITY_INFO,
-            'log_file': debug_file_name,
+            'log_file': self.debug_file_name,
         }
 
         switches = {
@@ -33,22 +41,21 @@ class Load():
         window_info.SetAsChild(
             parent_handle, [0, 0, window_size_y, window_size_x])
         cef.Initialize(settings=settings, switches=switches)
-        browser = cef.CreateBrowserSync(
-            url="https://www.google.com/", window_title=title, window_info=window_info)
+        Browser.instance = cef.CreateBrowserSync(
+            window_title=self.title, window_info=window_info)
 
         if platform.system() == "Windows":
-            window_handle = browser.GetOuterWindowHandle()
+            window_handle = Browser.instance.GetOuterWindowHandle()
             insert_after_handle = 0
             # X and Y parameters are ignored by setting the SWP_NOMOVE flag
             SWP_NOMOVE = 0x0002
             # noinspection PyUnresolvedReferences
             ctypes.windll.user32.SetWindowPos(window_handle, insert_after_handle,
-                                              0, 0, window_size_y, window_size_x, SWP_NOMOVE)
+                                              0, 0, self.window_size_x, self.window_size_y, SWP_NOMOVE)
 
-        browser.SetClientHandler(LoadHandler())
-
+        Browser.instance.SetClientHandler(LoadHandler())
+        
         cef.MessageLoop()
-        del browser
         cef.Shutdown()
 
     def check_versions(self) -> None:
@@ -64,14 +71,9 @@ class Load():
 
 class LoadHandler(object):
     def OnLoadingStateChange(self, browser, is_loading, **_):
-        """For detecting if page loading has ended it is recommended
-        to use OnLoadingStateChange which is most reliable. The OnLoadEnd
-        callback also available in LoadHandler can sometimes fail in
-        some cases e.g. when image loading hangs."""
         if not is_loading:
             self._OnPageComplete(browser)
 
     def _OnPageComplete(self, browser):
-        print("[PyPulse] Aplication Loaded")
-        # browser.ExecuteFunction("alert", "Message from Python: Page loading"
-        #                                  " is complete!")
+        print("[PyPulse] Page Loaded")
+        

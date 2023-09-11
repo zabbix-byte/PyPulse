@@ -1,1 +1,1 @@
-from .load import *
+from .load_browser import LoadBrowser

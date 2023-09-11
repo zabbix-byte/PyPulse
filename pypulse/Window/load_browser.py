@@ -10,7 +10,8 @@ class LoadBrowser():
             title, debug, debug_file_name, window_size_x, window_size_y))
         t.start()
 
-        while (not Browser.instance): pass
+        while (not Browser.instance):
+            pass
 
     @staticmethod
     def go_to_new_path(default_path: str):

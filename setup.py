@@ -3,7 +3,7 @@ from setuptools import find_packages, setup
 setup(
     name='pypulse',
     packages=find_packages(),
-    version='0.1',
+    version='no_release',
     description='',
     author='zabbix-byte',
     license='MIT',

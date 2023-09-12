@@ -2,6 +2,7 @@ from cefpython3 import cefpython as cef
 from .browser import Browser
 from pypulse import View
 from pypulse import Aplication
+from pypulse.Utils import execute_ast_view_request
 
 import threading
 
@@ -14,12 +15,12 @@ class LoadBrowser():
 
         while (not Browser.instance):
             pass
-        
-        primary_aplication = Aplication.GetAplication.primary()
-        current_view = View.CallView(f'{primary_aplication.name}___{primary_aplication.primary_view_name}')
-        
 
-        print(current_view.name, current_view.view)
+        primary_aplication = Aplication.GetAplication.primary()
+        current_view = View.CallView(
+            f'{primary_aplication.name}___{primary_aplication.primary_view_name}')
+        execute_ast_view_request(
+            node_body=current_view.view, request="testequest")
 
     @staticmethod
     def go_to_new_path(default_path: str):

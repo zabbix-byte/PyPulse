@@ -19,17 +19,12 @@ class ReadViews:
             # Parse the file's content into an Abstract Syntax Tree (AST)
             parsed_ast = ast.parse(file_contents)
 
-            target_decorator = "@PathView"
+            target_decorator = "@view"
 
             for node in ast.walk(parsed_ast):
                 if isinstance(node, ast.FunctionDef):
                     for decorator in node.decorator_list:
                         if isinstance(decorator, ast.Call) and decorator.func.id == target_decorator.lstrip("@"):
-                            object_view = ast.Module(
-                                body=[node for _ in range(2)], type_ignores=[])
-                            object_view = compile(
-                                object_view, f'{node.name}_view', 'exec')
-
                             current_name = None
                             current_path_trigger = None
 
@@ -46,6 +41,6 @@ class ReadViews:
 
                             View.SetView(
                                 f'{aplication_dir}___{current_name}',
-                                object_view,
+                                node,
                                 current_path_trigger
                             )

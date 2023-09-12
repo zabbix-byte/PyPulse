@@ -12,8 +12,14 @@ class ReadViews:
         complete_route_path = os.path.join(
             Vars.APLICATION_PATH, aplication_dir)
 
-        for i in os.listdir(complete_route_path):
-            with open(f'{complete_route_path}\{i}', 'r') as file:
+        dirs_module = []
+
+        for path, subdirs, files in os.walk(complete_route_path):
+            for name in files:
+                dirs_module.append(os.path.join(path, name))
+
+        for file in dirs_module:
+            with open(file, 'r') as file:
                 file_contents = file.read()
 
             # Parse the file's content into an Abstract Syntax Tree (AST)
@@ -38,7 +44,7 @@ class ReadViews:
 
                                 if current_name is not None and current_path_trigger is not None:
                                     break
-
+                            
                             View.SetView(
                                 f'{aplication_dir}___{current_name}',
                                 node,

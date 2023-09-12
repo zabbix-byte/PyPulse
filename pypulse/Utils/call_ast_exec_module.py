@@ -27,4 +27,4 @@ def execute_ast_view_request(request: str, node_body: object) -> None:
         namespace
     )
 
-    return namespace['home'](request)
+    return namespace[node_body.name](request)

@@ -13,6 +13,7 @@ class SetAplication:
 
         Aplication(name, primary, primary_view_name)
 
-    def _check_if_primary_view_exists(self, primary_view_name:str, aplication_name: str):
+    def _check_if_primary_view_exists(self, primary_view_name: str, aplication_name: str):
         if f'{aplication_name}___{primary_view_name}' not in [i.name for i in View.instances]:
-            raise ValueError(f'The Primary View Name <{primary_view_name}> dont exists in the views files, please check it')
+            raise ValueError(
+                f'The Primary View Name <{primary_view_name}> dont exists in the views files, please check it')

@@ -44,7 +44,7 @@ class ReadViews:
 
                                 if current_name is not None and current_path_trigger is not None:
                                     break
-                            
+
                             View.SetView(
                                 f'{aplication_dir}___{current_name}',
                                 node,

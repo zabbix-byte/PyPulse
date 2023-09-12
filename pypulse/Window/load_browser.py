@@ -17,12 +17,13 @@ class LoadBrowser():
             pass
 
         primary_aplication = Aplication.GetAplication.primary()
+
         current_view = View.CallView(
             f'{primary_aplication.name}___{primary_aplication.primary_view_name}')
-        execute_ast_view_request(
-            node_body=current_view.view, request="testequest")
+        
+        execute_ast_view_request(node_body=current_view.view, request="testequest")
 
     @staticmethod
-    def go_to_new_path(default_path: str):
+    def go_to_html_string(string: str):
         if Browser.instance:
-            Browser.instance.GetMainFrame().LoadUrl(default_path)
+            Browser.instance.GetMainFrame().LoadUrl(f'data:text/html,{str.join(" ", string.splitlines())}')

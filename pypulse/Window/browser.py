@@ -3,10 +3,12 @@ import platform
 import ctypes
 
 from cefpython3 import cefpython as cef
+from .request_hander import LoadHandler
 
 
 class Browser():
     instance = None
+
     def __init__(self, title: str,
                  debug: bool,
                  debug_file_name: str,
@@ -29,6 +31,7 @@ class Browser():
             'debug': self.debug,
             'log_severity': cef.LOGSEVERITY_INFO,
             'log_file': self.debug_file_name,
+            "context_menu": {"enabled": True}
         }
 
         switches = {
@@ -41,8 +44,8 @@ class Browser():
         window_info.SetAsChild(
             parent_handle, [0, 0, window_size_y, window_size_x])
         cef.Initialize(settings=settings, switches=switches)
-        Browser.instance = cef.CreateBrowserSync(
-            window_title=self.title, window_info=window_info)
+        Browser.instance = cef.CreateBrowserSync(url='/',
+                                                 window_title=self.title, window_info=window_info)
 
         if platform.system() == "Windows":
             window_handle = Browser.instance.GetOuterWindowHandle()
@@ -54,7 +57,7 @@ class Browser():
                                               0, 0, self.window_size_x, self.window_size_y, SWP_NOMOVE)
 
         Browser.instance.SetClientHandler(LoadHandler())
-        
+
         cef.MessageLoop()
         cef.Shutdown()
 
@@ -67,13 +70,3 @@ class Browser():
             ver=platform.python_version(),
             arch=platform.architecture()[0]))
         assert cef.__version__ >= '57.0', 'CEF Python v57.0+ required to run this'
-
-
-class LoadHandler(object):
-    def OnLoadingStateChange(self, browser, is_loading, **_):
-        if not is_loading:
-            self._OnPageComplete(browser)
-
-    def _OnPageComplete(self, browser):
-        print("[PyPulse] Page Loaded")
-        

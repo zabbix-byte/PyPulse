@@ -114,9 +114,11 @@ def scale_window_size_for_high_dpi(width, height):
 class MainFrame(wx.Frame):
     instance = None
 
-    def __init__(self, ):
+    def __init__(self, parent, id=wx.ID_ANY, title="", pos=wx.DefaultPosition,
+                 size=wx.DefaultSize, style=wx.DEFAULT_FRAME_STYLE):
+        super(MainFrame, self).__init__(parent, id, title, pos, size, style)
         Browser.instance = None
-
+    
         # Must ignore X11 errors like 'BadWindow' and others by
         # installing X11 error handlers. This must be done after
         # wx was intialized.
@@ -282,7 +284,7 @@ class CefApp(wx.App):
             return
         self.is_initialized = True
         self.create_timer()
-        frame = MainFrame()
+        frame = MainFrame(None)
         self.SetTopWindow(frame)
         frame.Show()
 

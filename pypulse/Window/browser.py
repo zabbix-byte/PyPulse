@@ -3,6 +3,7 @@ import platform
 import ctypes
 
 from cefpython3 import cefpython as cef
+from pypulse.Aplication import Vars
 from .request_hander import LoadHandler
 
 
@@ -44,7 +45,8 @@ class Browser():
         window_info.SetAsChild(
             parent_handle, [0, 0, window_size_y, window_size_x])
         cef.Initialize(settings=settings, switches=switches)
-        Browser.instance = cef.CreateBrowserSync(url='/',
+        cef.DpiAware.EnableHighDpiSupport()
+        Browser.instance = cef.CreateBrowserSync(url=f'http://127.0.0.1:{Vars.INTERNAL_HTTP_SERVER_PORT}/',
                                                  window_title=self.title, window_info=window_info)
 
         if platform.system() == "Windows":

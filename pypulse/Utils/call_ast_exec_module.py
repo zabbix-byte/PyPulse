@@ -1,36 +1,34 @@
 import ast
 
 
-def execute_ast_view_request(request: str, node_body: object) -> None:
-    import_pypulse = ast.ImportFrom(
-        module="pypulse.View",
-        names=[ast.alias(name="view", asname=None)],
-        level=0
-    )
+def execute_ast_view_request(request: str, node_body: object, requirement_view: list) -> None:
+    module_body = []
 
-    import_pypulse.lineno = 1
-    import_pypulse.col_offset = 0
+    for i in requirement_view:
+        import_q = i[0]
+        import_as_name = i[1]
 
-    import_rendertemplate = ast.ImportFrom(
-        module="pypulse.Template",
-        names=[ast.alias(name="RenderTemplate", asname=None)],
-        level=0
-    )
+        if '.' in import_q:
+            current_path = import_q.rsplit('.', 1)
+            import_lib = ast.ImportFrom(
+                module=current_path[0],
+                names=[ast.alias(name=current_path[1], asname=import_as_name)],
+                level=0
+            )
+        else:
+            import_lib = ast.Import(
+                names=[ast.alias(name=import_q, asname=import_as_name)])
 
-    import_rendertemplate.lineno = 1
-    import_rendertemplate.col_offset = 0
+        import_lib.lineno = 1
+        import_lib.col_offset = 0
+        module_body.append(import_lib)
 
-    module_body = [
-        import_pypulse,
-        import_rendertemplate,
-        node_body
-    ]
+    module_body.append(node_body)
 
     object_view = ast.Module(
         body=module_body, type_ignores=[])
 
-    namespace = {
-    }
+    namespace = {}
 
     object_view = exec(
         compile(object_view, f'{node_body.name}_view', 'exec'),

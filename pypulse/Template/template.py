@@ -1,3 +1,3 @@
 class Template:
-    template_path: str = None
-    static_path: str = None
+    TEMPLATE_PATH: str = None
+    STATIC_PATH: str = None

@@ -2,9 +2,9 @@ from .view import View
 
 
 class SetView:
-    def __init__(self, name: str, view: object, path_trigger: str) -> None:
+    def __init__(self, name: str, view: object, requirement_view: list, path_trigger: str) -> None:
         self._validate_new_view_consistance(name, path_trigger)
-        View(name, view, path_trigger)
+        View(name, view, requirement_view, path_trigger)
 
     def _validate_new_view_consistance(self, name, path_trigger):
         if len(View.instances) == 0:

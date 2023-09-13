@@ -23,6 +23,8 @@
 **Please Note**: PyPulse is currently under active development, and some features may be incomplete or subject to change. We appreciate your interest and patience as we work to improve and enhance this project.
 
 ## 🌍 Hello Word Project Preview
+**Project repository**: https://github.com/zabbix-byte/PyPulse-HelloWord-Project
+
 <img src="https://github.com/zabbix-byte/PyPulse/blob/main/HelloWordProject.png" height="450px"></img>
 
 ## ✨ Features

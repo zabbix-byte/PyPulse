@@ -3,8 +3,15 @@ import platform
 import ctypes
 
 from cefpython3 import cefpython as cef
+
 from pypulse.Aplication import Vars
 from .request_hander import LoadHandler
+from .set_icon_windows import alter_icon
+
+
+def set_app_icon(icon_path):
+    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("your_unique_id")
+    ctypes.windll.kernel32.SetConsoleIcon(cef.GetApplicationPath() + icon_path)
 
 
 class Browser():
@@ -14,7 +21,8 @@ class Browser():
                  debug: bool,
                  debug_file_name: str,
                  window_size_x: int,
-                 window_size_y: int
+                 window_size_y: int,
+                 icon_path: str
                  ) -> None:
 
         self.title = title
@@ -31,7 +39,7 @@ class Browser():
             'product_version': 'PyPulse/10.00',
             'debug': self.debug,
             'log_severity': cef.LOGSEVERITY_INFO,
-            'log_file': self.debug_file_name
+            'log_file': self.debug_file_name,
         }
 
         switches = {
@@ -41,6 +49,7 @@ class Browser():
 
         parent_handle = 0
         window_info = cef.WindowInfo()
+
         window_info.SetAsChild(
             parent_handle, [0, 0, window_size_y, window_size_x])
         cef.Initialize(settings=settings, switches=switches)
@@ -49,6 +58,8 @@ class Browser():
                                                  window_title=self.title, window_info=window_info)
 
         if platform.system() == "Windows":
+            if icon_path is not None:
+                alter_icon(Browser.instance.GetWindowHandle(), icon_path)
             window_handle = Browser.instance.GetOuterWindowHandle()
             insert_after_handle = 0
             # X and Y parameters are ignored by setting the SWP_NOMOVE flag

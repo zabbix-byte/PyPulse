@@ -10,6 +10,6 @@ httpd = socketserver.TCPServer(
 def run_socket():
     httpd.serve_forever()
 
-
-def stop_socket():
+def stop_server():
+    httpd.shutdown()
     httpd.server_close()

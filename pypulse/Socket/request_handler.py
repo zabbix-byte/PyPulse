@@ -9,6 +9,7 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=Template.STATIC_PATH, **kwargs)
 
+
     def do_GET(self):
         current_view = View.CallView(self.path)
         if current_view.name is not None:

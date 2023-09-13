@@ -31,8 +31,7 @@ class Browser():
             'product_version': 'PyPulse/10.00',
             'debug': self.debug,
             'log_severity': cef.LOGSEVERITY_INFO,
-            'log_file': self.debug_file_name,
-            "context_menu": {"enabled": True}
+            'log_file': self.debug_file_name
         }
 
         switches = {

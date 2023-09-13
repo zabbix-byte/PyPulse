@@ -22,6 +22,8 @@
 
 **Please Note**: PyPulse is currently under active development, and some features may be incomplete or subject to change. We appreciate your interest and patience as we work to improve and enhance this project.
 
+## 🌍 Hello Word Project Preview
+<img src="https://github.com/zabbix-byte/PyPulse/blob/main/HelloWordProject.png" height="450px"></img>
 
 ## ✨ Features
 
@@ -34,6 +36,8 @@
 - 📖 **Open Source**: PyPulse is licensed under the MIT License, so you can use it freely in your projects, whether they are open source or proprietary.
 
 - 🌐 **Cross-Platform**: PyPulse supports multiple platforms, including Windows, macOS, and Linux, ensuring your app can reach a wide audience.
+
+
 
 ## 🚀 Getting Started
 

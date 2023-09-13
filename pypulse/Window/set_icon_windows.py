@@ -1,7 +1,8 @@
+import platform
+
 from ctypes import *
 from ctypes.wintypes import *
 from os import path
-import platform
 
 LRESULT = c_int64 if platform.architecture()[0] == "64bit" else c_long
 
@@ -21,14 +22,14 @@ LoadImage = windll.user32.LoadImageW
 LoadImage.restype = HANDLE
 LoadImage.argtypes = [HINSTANCE, LPCWSTR, UINT, c_int, c_int, UINT]
 
-RelPath = lambda file : path.join(path.dirname(path.abspath(__file__)), file)
+
+def RelPath(file): return path.join(path.dirname(path.abspath(__file__)), file)
 
 
 def alter_icon(_hWnd, lpszIcon):
 
     if '.ico' not in lpszIcon.lower():
         raise FormatError('The window icon need to be a ico format!')
-
 
     WM_SETICON = 0x0080
     ICON_BIG = 1
@@ -39,6 +40,5 @@ def alter_icon(_hWnd, lpszIcon):
                       IMAGE_ICON,
                       0, 0,
                       LR_LOADFROMFILE | LR_CREATEDIBSECTION)
-
 
     SendMessage(_hWnd, WM_SETICON, ICON_BIG, hIcon)

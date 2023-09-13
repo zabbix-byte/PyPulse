@@ -281,9 +281,21 @@ class CefApp(wx.App):
         if self.is_initialized:
             return
         self.is_initialized = True
+        self.create_timer()
         frame = MainFrame()
         self.SetTopWindow(frame)
         frame.Show()
+
+    def create_timer(self):
+        # See also "Making a render loop":
+        # http://wiki.wxwidgets.org/Making_a_render_loop
+        # Another way would be to use EVT_IDLE in MainFrame.
+        self.timer = wx.Timer(self, self.timer_id)
+        self.Bind(wx.EVT_TIMER, self.on_timer, self.timer)
+        self.timer.Start(10)  # 10ms timer
+
+    def on_timer(self, _):
+        cef.MessageLoopWork()
 
     def OnExit(self):
         self.timer.Stop()

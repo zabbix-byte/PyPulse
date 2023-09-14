@@ -1,7 +1,7 @@
 from setuptools import find_packages, setup
 
 setup(
-    name='pulse',
+    name='python-pulse',
     packages=find_packages(),
     version='0.1',
     description='Python, create desktop applications based on Chromium',

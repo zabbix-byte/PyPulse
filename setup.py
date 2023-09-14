@@ -1,13 +1,10 @@
 from setuptools import find_packages, setup
-import markdown2
 
 
 # Read the contents of the README.md file
 with open("README.md", "r", encoding="utf-8") as readme_file:
     long_description = readme_file.read()
 
-# Convert Markdown to HTML
-long_description = markdown2.markdown(long_description)
 
 setup(
     name='python-pulse',

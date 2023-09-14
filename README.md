@@ -41,7 +41,21 @@
 
 ## 🚀 Getting Started
 
-To get started with PyPulse, follow these simple steps: *SOON*
+1. **Using pip install the library**
+```bash
+pip install python-pulse
+```
+
+2. **Create a new Project**
+```bash
+pypulse-manage --create_project YourProjectName
+```
+
+3. **Create a new Application (Next update)**
+```bash
+At this moment you can't create a new Application automatically
+```
+
 
 ## 📚 Documentation
 

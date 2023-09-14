@@ -5,7 +5,6 @@ setup(
     packages=find_packages(),
     version='0.1',
     description='Python, create desktop applications based on Chromium',
-    long_description='Python, Open-source project that simplifies the creation of desktop applications based on Chromium',
     author='zabbix-byte',
     license='MIT',
     install_requires=['cefpython3==66.1', 'Jinja2==3.1.2', 'wxPython==4.2.1'],

@@ -2,6 +2,9 @@ import argparse
 import platform
 import os
 import importlib.metadata
+import zipfile
+import shutil
+from pathlib import Path
 
 MANAGE_lOGO = r"""
 ██████╗ ██╗   ██╗██████╗ ██╗   ██╗██╗     ███████╗███████╗
@@ -33,21 +36,46 @@ def main():
 
 
 def create_new_project(project_name_path: str):
+    print('[PyPulse] Creating project....')
+
     if project_name_path is None:
         raise ValueError(
             '[PyPulse] create_new_project function only accept by parameter a string')
 
-    if not os.path.isdir(project_name_path):
-        os.mkdir(project_name_path)
-    else:
+    if os.path.isdir(project_name_path):
         print('[PyPulse] Already exists a project with the same name in this path\n')
         exit()
+
+    if os.path.isdir('tmp-project'):
+        print('[PyPulse] Already exists a temp file in project\n')
+        exit()
+
+    os.mkdir('tmp-project')
 
     import requests
     project_name = project_name_path.split(PATH_SEPARATOR)[-1]
 
-    response = requests.get('https://github.com/zabbix-byte/PyPulse/archive/refs/heads/main.zip')
-    open(f'{project_name_path}.zip', "wb").write(response.content)
+    response = requests.get(
+        'https://github.com/zabbix-byte/PyPulse-HelloWord-Project/archive/refs/heads/main.zip')
+    f = open(os.path.join('tmp-project', 'temp.zip'), "wb")
+    f.write(response.content)
+    f.close()
+
+    with zipfile.ZipFile(os.path.join('tmp-project', 'temp.zip'), 'r') as zip_ref:
+        zip_ref.extractall('tmp-project')
+
+    shutil.copytree(os.path.join(
+        'tmp-project', 'PyPulse-HelloWord-Project-main'), project_name_path)
+    shutil.rmtree('tmp-project')
+
+    ### Changing names
+    path_to_project_old_name = os.path.join(project_name_path, 'HelloWord.py')
+    os.rename(path_to_project_old_name, os.path.join(project_name_path, f'{project_name_path}.py'))
+
+    ### Repvomg files
+
+    os.remove(os.path.join(project_name_path, 'README.md'))
+    os.remove(os.path.join(project_name_path, '.gitignore'))
 
 
     print(f'[PyPulse] Project with name {project_name} has been created!\n')

@@ -25,7 +25,7 @@
 ## 🌍 Hello Word Project Preview
 **Project repository**: https://github.com/zabbix-byte/PyPulse-HelloWord-Project
 
-<img src="https://github.com/zabbix-byte/PyPulse/blob/main/HelloWordProject.png" height="450px"></img>
+<img src="https://github.com/zabbix-byte/PyPulse/blob/main/HelloWordProject.gif" height="450px"></img>
 
 ## ✨ Features
 

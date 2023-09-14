@@ -47,7 +47,7 @@ To get started with PyPulse, follow these simple steps: *SOON*
 
 ## 📚 Documentation
 
-For detailed instructions and more information about PyPulse, please refer to the [official documentation](#).
+For detailed instructions and more information about PyPulse, please refer to the [official documentation](https://github.com/zabbix-byte/PyPulse/wiki).
 
 ## 📜 License
 

@@ -43,73 +43,11 @@ def create_new_project(project_name_path: str):
         print('[PyPulse] Already exists a project with the same name in this path\n')
         exit()
 
+    import requests
     project_name = project_name_path.split(PATH_SEPARATOR)[-1]
 
-    server_main = open(
-        f'{project_name_path}/{project_name}.py',
-        'w'
-    )
+    response = requests.get('https://github.com/zabbix-byte/PyPulse/archive/refs/heads/main.zip')
+    open(f'{project_name_path}.zip', "wb").write(response.content)
 
-    server_main_string = """
-from pypulse import Window
-
-
-def main():
-    Window.Load()
-
-
-if __name__ == '__main__':
-    main()
-    """
-
-    server_main.write(server_main_string)
-
-    server_main.close()
-
-    os.mkdir(f'{project_name_path}/templates')
-    os.mkdir(f'{project_name_path}/static')
-    os.mkdir(f'{project_name_path}/baseapp')
-
-    home_html = open(
-        f'{project_name_path}{PATH_SEPARATOR}templates{PATH_SEPARATOR}home.html',
-        'w'
-    )
-
-    home_html.close()
-
-    base_html = open(
-        f'{project_name_path}{PATH_SEPARATOR}templates{PATH_SEPARATOR}base.html',
-        'w'
-    )
-
-    base_html.close()
-
-    base_css = open(
-        f'{project_name_path}{PATH_SEPARATOR}static{PATH_SEPARATOR}base.css',
-        'w'
-    )
-
-    base_css.close()
-
-    base_js = open(
-        f'{project_name_path}{PATH_SEPARATOR}static{PATH_SEPARATOR}base.js',
-        'w'
-    )
-
-    base_js.close()
-
-    base_app_views = open(
-        f'{project_name_path}{PATH_SEPARATOR}baseapp{PATH_SEPARATOR}views.py',
-        'w'
-    )
-
-    base_app_views.close()
-
-    base_app_events = open(
-        f'{project_name_path}{PATH_SEPARATOR}baseapp{PATH_SEPARATOR}events.py',
-        'w'
-    )
-
-    base_app_events.close()
 
     print(f'[PyPulse] Project with name {project_name} has been created!\n')

@@ -22,11 +22,6 @@
 
 **Please Note**: PyPulse is currently under active development, and some features may be incomplete or subject to change. We appreciate your interest and patience as we work to improve and enhance this project.
 
-## 🌍 Hello Word Project Preview
-**Project repository**: https://github.com/zabbix-byte/PyPulse-HelloWord-Project
-
-<img src="https://github.com/zabbix-byte/PyPulse/blob/main/HelloWordProject.gif" height="450px"></img>
-
 ## ✨ Features
 
 - 🚀 **Chromium-Based**: PyPulse harnesses the power of the Chromium web engine, ensuring your desktop applications offer a modern and robust web experience.
@@ -39,7 +34,10 @@
 
 - 🌐 **Cross-Platform**: PyPulse supports multiple platforms, including Windows, macOS, and Linux, ensuring your app can reach a wide audience.
 
+## 🌍 Hello Word Project Preview
+<img src="https://github.com/zabbix-byte/PyPulse/blob/main/HelloWordProject.gif"></img>
 
+[**GO TO HELLO WORD PROJECT**](https://github.com/zabbix-byte/PyPulse-HelloWord-Project)
 
 ## 🚀 Getting Started
 

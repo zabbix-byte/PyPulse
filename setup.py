@@ -2,6 +2,7 @@ from setuptools import find_packages, setup
 import markdown2
 
 
+# Read the contents of the README.md file
 with open("README.md", "r", encoding="utf-8") as readme_file:
     long_description = readme_file.read()
 
@@ -14,10 +15,10 @@ setup(
     version='0.1',
     description='Python, create desktop applications based on Chromium',
     long_description=long_description,
-    long_description_content_type="text/html",
+    long_description_content_type="text/markdown",
     author='zabbix-byte',
     license='MIT',
-    install_requires=['cefpython3==66.1', 'Jinja2==3.1.2', 'wxPython==4.2.1', 'markdown2'],
+    install_requires=['cefpython3==66.1', 'Jinja2==3.1.2', 'wxPython==4.2.1'],
     classifiers=[
         # Chose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" as the current state of your package
         'Development Status :: 3 - Alpha',

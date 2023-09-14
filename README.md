@@ -1,4 +1,4 @@
-# **<img src="https://github.com/zabbix-byte/PyPulse/blob/main/logo.png" height="48px"></img> PyPulse (Under Construction🚧)** 
+# **<img src="https://github.com/zabbix-byte/PyPulse/blob/main/logo.png" height="48px"></img> PyPulse (🚧 Under Construction 🚧)** 
 
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)

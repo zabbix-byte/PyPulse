@@ -4,18 +4,7 @@
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Python Version](https://img.shields.io/badge/Python-3.8-blue)](https://www.python.org/downloads/)
 
-<div align="center">
 
-```plaintext
-██████╗ ██╗   ██╗██████╗ ██╗   ██╗██╗     ███████╗███████╗
-██╔══██╗╚██╗ ██╔╝██╔══██╗██║   ██║██║     ██╔════╝██╔════╝
-██████╔╝ ╚████╔╝ ██████╔╝██║   ██║██║     ███████╗█████╗  
-██╔═══╝   ╚██╔╝  ██╔═══╝ ██║   ██║██║     ╚════██║██╔══╝  
-██║        ██║   ██║     ╚██████╔╝███████╗███████║███████╗
-╚═╝        ╚═╝   ╚═╝      ╚═════╝ ╚══════╝╚══════╝╚══════╝
-```
-
-</div>
 
 
 **PyPulse** is an open-source project that simplifies the creation of desktop applications based on Chromium, using a template-based architecture. Whether you're building a web-based desktop app, a custom browser, or need to embed web content into your Python application, PyPulse provides an easy and efficient way to get started.

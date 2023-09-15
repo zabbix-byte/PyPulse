@@ -4,9 +4,6 @@ from pypulse import View
 from pypulse.Template import Template
 from pypulse.Utils import execute_ast_view_request
 
-import json
-
-
 class RequestHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=Template.STATIC_PATH, **kwargs)

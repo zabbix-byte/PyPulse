@@ -22,22 +22,9 @@
 
 **Please Note**: PyPulse is currently under active development, and some features may be incomplete or subject to change. We appreciate your interest and patience as we work to improve and enhance this project.
 
-## ✨ Features
+## 📚 Documentation
 
-- 🚀 **Chromium-Based**: PyPulse harnesses the power of the Chromium web engine, ensuring your desktop applications offer a modern and robust web experience.
-
-- 📋 **Template-Based Architecture**: PyPulse's template system is a powerful feature that empowers you to decouple the presentation layer from the business logic in your web applications. PyPulse follows the DRY (Don't Repeat Yourself) principle and provides you with the capability to craft reusable HTML templates enriched with placeholders for dynamic data using Jinja2.
-
-- 🐍 **Python-Powered**: PyPulse is written in Python, making it accessible and customizable for Python developers. No need to learn a new language or framework.
-
-- 📖 **Open Source**: PyPulse is licensed under the MIT License, so you can use it freely in your projects, whether they are open source or proprietary.
-
-- 🌐 **Cross-Platform**: PyPulse supports multiple platforms, including Windows, macOS, and Linux, ensuring your app can reach a wide audience.
-
-## 🌍 Hello Word Project Preview
-<img src="https://github.com/zabbix-byte/PyPulse/blob/main/HelloWordProject.gif"></img>
-
-[**GO TO HELLO WORD PROJECT**](https://github.com/zabbix-byte/PyPulse-HelloWord-Project)
+For detailed instructions and more information about PyPulse, please refer to the [official documentation](https://github.com/zabbix-byte/PyPulse/wiki).
 
 ## 🚀 Getting Started
 
@@ -56,10 +43,6 @@ pypulse-manage --create_project YourProjectName
 At this moment you can't create a new Application automatically
 ```
 
-
-## 📚 Documentation
-
-For detailed instructions and more information about PyPulse, please refer to the [official documentation](https://github.com/zabbix-byte/PyPulse/wiki).
 
 ## 📜 License
 

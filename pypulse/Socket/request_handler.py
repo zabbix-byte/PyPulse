@@ -4,6 +4,7 @@ from pypulse import View
 from pypulse.Template import Template
 from pypulse.Utils import execute_ast_view_request
 
+
 class RequestHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=Template.STATIC_PATH, **kwargs)
@@ -54,7 +55,7 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                     'Accept-Encoding': self.headers.get('Accept-Encoding'),
                     'Accept-Language': self.headers.get('Accept-Language')
                 },
-                'temp_post_body': temp_post_body
+                'body': temp_post_body
             }
 
             render = execute_ast_view_request(

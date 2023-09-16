@@ -5,19 +5,18 @@ from .vars import Vars
 from pypulse import View
 
 
-def collect_imports(node):
-    if isinstance(node, ast.Import):
-        for alias in node.names:
-            import_name = alias.name
-            as_name = alias.asname
-            return (import_name, as_name)
-        
-    elif isinstance(node, ast.ImportFrom):
-        module_name = node.module
-        for alias in node.names:
-            import_name = alias.name
-            as_name = alias.asname
-            return (f"{module_name}.{import_name}", as_name)
+def get_imports(node):
+    imports = []
+    for item in node.body:
+        if isinstance(item, ast.Import):
+            for alias in item.names:
+                imports.append((alias.name, alias.asname))
+
+        elif isinstance(item, ast.ImportFrom):
+            module = item.module
+            for alias in item.names:
+                imports.append((f"{module}.{alias.name}", alias.asname))
+    return imports
 
 
 class ReadViews:
@@ -44,14 +43,9 @@ class ReadViews:
 
             target_decorator = "@view"
 
-            all_imports = []
+            all_imports = get_imports(parsed_ast)
 
             for node in ast.walk(parsed_ast):
-                if isinstance(node, (ast.Import, ast.ImportFrom)):
-                    lib = collect_imports(node)
-                    if lib != None:
-                        all_imports.append(lib)
-
                 if isinstance(node, ast.FunctionDef):
 
                     for decorator in node.decorator_list:

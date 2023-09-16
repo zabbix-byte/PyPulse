@@ -19,7 +19,7 @@ PATH_SEPARATOR = '/' if platform.system() == 'Linux' else '\\'
 
 
 def main():
-    print(f'v{importlib.metadata.version("pypulse")}')
+    print(f'v{importlib.metadata.version("python-pulse")}')
     print(MANAGE_lOGO)
 
     parser = argparse.ArgumentParser(

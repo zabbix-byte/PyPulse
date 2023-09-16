@@ -56,7 +56,7 @@ def create_new_project(project_name_path: str):
     project_name = project_name_path.split(PATH_SEPARATOR)[-1]
 
     response = requests.get(
-        'https://github.com/zabbix-byte/PyPulse-HelloWord-Project/archive/refs/heads/main.zip')
+        'https://github.com/zabbix-byte/PyPulse-HelloWorld-Project/archive/refs/heads/main.zip')
     f = open(os.path.join('tmp-project', 'temp.zip'), "wb")
     f.write(response.content)
     f.close()
@@ -65,11 +65,11 @@ def create_new_project(project_name_path: str):
         zip_ref.extractall('tmp-project')
 
     shutil.copytree(os.path.join(
-        'tmp-project', 'PyPulse-HelloWord-Project-main'), project_name_path)
+        'tmp-project', 'PyPulse-HelloWorld-Project-main'), project_name_path)
     shutil.rmtree('tmp-project')
 
     ### Changing names
-    path_to_project_old_name = os.path.join(project_name_path, 'HelloWord.py')
+    path_to_project_old_name = os.path.join(project_name_path, 'HelloWorld.py')
     os.rename(path_to_project_old_name, os.path.join(project_name_path, f'{project_name_path}.py'))
 
     ### Repvomg files

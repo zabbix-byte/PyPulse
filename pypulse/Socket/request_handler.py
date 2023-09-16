@@ -40,7 +40,8 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
         temp_post_body = {}
         for i in post_body.decode('utf-8').split('&'):
             element = i.split('=')
-            temp_post_body[element[0]] = element[1]
+            if len(element) == 2:
+                temp_post_body[element[0]] = element[1]
 
         current_view = View.CallView(self.path)
 

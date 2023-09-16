@@ -1,7 +1,7 @@
 import ast
 
 
-def execute_ast_view_request(request: str, node_body: object, requirement_view: list) -> None:
+def execute_ast_view_request(request: str, node_body: object, requirement_view: list, other_variables: dict = {}) -> None:
     module_body = []
 
     for i in requirement_view:
@@ -35,4 +35,10 @@ def execute_ast_view_request(request: str, node_body: object, requirement_view: 
         namespace
     )
 
-    return namespace[node_body.name](request)
+    variables = {
+        'request': request
+    }
+
+    variables.update(other_variables)
+
+    return namespace[node_body.name](**variables)

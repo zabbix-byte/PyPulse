@@ -25,7 +25,7 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
             }
 
             render = execute_ast_view_request(
-                node_body=current_view.view, request=request, requirement_view=current_view.requirement_view)
+                node_body=current_view.view, request=request, requirement_view=current_view.requirement_view, other_variables=current_view.variables_list)
 
             if type(render).__name__ == 'Redirect':
                 render = render.get_render(request)
@@ -75,7 +75,7 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(template.encode())
         else:
-            super().do_GET()
+            super().do_POST()
 
     def do_PUT(self):
         content_length = int(self.headers['Content-Length'])
@@ -114,7 +114,7 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(template.encode())
         else:
-            super().do_GET()
+            super().do_PUT()
 
     def do_PATCH(self):
         content_length = int(self.headers['Content-Length'])
@@ -153,4 +153,4 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(template.encode())
         else:
-            super().do_GET()
+            super().do_PATCH()

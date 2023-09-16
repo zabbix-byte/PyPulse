@@ -17,6 +17,33 @@ class SetView:
             raise KeyError(
                 f'The view with the path_trigger {path_trigger} already exists')
 
+        for i in View.instances:
+            current_path_instance_new = []
+            current_paths_in_views_new = []
+
+            current_path_instance = path_trigger.split('/')
+            current_paths_in_views = i.path_trigger.split('/')
+
+            # removing the variables and see if match
+
+            for j in current_path_instance:
+                if len(j) == 0:
+                    current_path_instance_new.append(j)
+                    continue
+                if j[0] != '<' and j[-1] != '>':
+                    current_path_instance_new.append(j)
+
+            for j in current_paths_in_views:
+                if len(j) == 0:
+                    current_paths_in_views_new.append(j)
+                    continue
+                if j[0] != '<' and j[-1] != '>':
+                    current_paths_in_views_new.append(j)
+
+            if current_path_instance_new == current_paths_in_views_new:
+                raise KeyError(
+                    f'The view with the path_trigger {path_trigger} already exists, coincidende path: {i.path_trigger}')
+
 
 def view(name: str, path_trigger: str):
     def decorator(func):

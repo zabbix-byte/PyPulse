@@ -3,7 +3,7 @@ import http.server
 from pypulse import View
 from pypulse.Template import Template
 from pypulse.Utils import execute_ast_view_request
-
+import urllib.parse
 
 class RequestHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
@@ -40,12 +40,11 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
     def do_POST(self):
         content_length = int(self.headers['Content-Length'])
-        post_body = self.rfile.read(content_length)
+        post_body = urllib.parse.parse_qs(self.rfile.read(content_length).decode('utf-8'))
         temp_post_body = {}
-        for i in post_body.decode('utf-8').split('&'):
-            element = i.split('=')
-            if len(element) == 2:
-                temp_post_body[element[0]] = element[1]
+
+        for i in post_body:
+            temp_post_body[i] = post_body[i][0]
 
         current_view = View.CallView(self.path)
 

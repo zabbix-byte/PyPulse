@@ -27,12 +27,6 @@ pip install python-pulse
 pypulse-manage --create_project YourProjectName
 ```
 
-3. **Create a new Application (Next update)**
-```bash
-At this moment you can't create a new Application automatically
-```
-
-
 ## 📜 License
 
 PyPulse is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

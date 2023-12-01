@@ -1,10 +1,10 @@
 import socketserver
-from .request_handler import RequestHandler
+from pypulse.Socket.handler import Request
 from pypulse.Aplication import Vars
 
 
 httpd = socketserver.TCPServer(
-    ("", Vars.INTERNAL_HTTP_SERVER_PORT), RequestHandler)
+    ("", Vars.INTERNAL_HTTP_SERVER_PORT), Request)
 
 
 def run_socket():

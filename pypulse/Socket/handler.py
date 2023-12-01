@@ -16,16 +16,30 @@ class Request(http.server.SimpleHTTPRequestHandler):
         if not view:
             return False
 
-        self.response = view[0](
-            self) if not view[1] else view[0](self, **view[1])
+        request = {
+            "method": self.command,
+            "headers": {
+                "Host": self.headers.get("Host"),
+                "Upgrade-Insecure-Requests": self.headers.get(
+                    "Upgrade-Insecure-Requests"
+                ),
+                "User-Agent": self.headers.get("User-Agent"),
+                "Accept": self.headers.get("Accept"),
+                "Accept-Encoding": self.headers.get("Accept-Encoding"),
+                "Accept-Language": self.headers.get("Accept-Language"),
+            },
+            "body": self.parameters,
+        }
 
-        if type(self.response).__name__ not in ['Redirect', 'RenderTemplate', 'Reload']:
+        self.response = view[0](request) if not view[1] else view[0](request, **view[1])
+
+        if type(self.response).__name__ not in ["Redirect", "RenderTemplate", "Reload"]:
             return False
-        
+
         return True
 
     def __request_content(self):
-        raw_length = self.headers.get('content-length')
+        raw_length = self.headers.get("content-length")
         if not raw_length:
             return
         length = int(raw_length)
@@ -39,7 +53,7 @@ class Request(http.server.SimpleHTTPRequestHandler):
         render, redirect = self.response.render_template(self)
         self.end_headers()
         if not redirect:
-            template = ' '.join(render.splitlines())
+            template = " ".join(render.splitlines())
 
             self.wfile.write(template.encode())
 
@@ -47,7 +61,9 @@ class Request(http.server.SimpleHTTPRequestHandler):
         condition = self.__check_request()
 
         if not condition:
-            return getattr(http.server.SimpleHTTPRequestHandler, f'do_{self.command}')(self)
+            return getattr(http.server.SimpleHTTPRequestHandler, f"do_{self.command}")(
+                self
+            )
 
         self.__return_template()
 
@@ -61,5 +77,8 @@ class Request(http.server.SimpleHTTPRequestHandler):
             result[i[0].decode()] = i[1].decode()
         return result
 
-    def do_GET(self): self.__handler()
-    def do_POST(self): self.__handler()
+    def do_GET(self):
+        self.__handler()
+
+    def do_POST(self):
+        self.__handler()

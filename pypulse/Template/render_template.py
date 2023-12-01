@@ -10,14 +10,10 @@ class RenderTemplate():
         self.envirenemnt = Environment(
             loader=FileSystemLoader(Template.TEMPLATE_PATH))
 
-    def render_template(self, request):
-        request.send_response(200)
-        request.send_header('Content-type', 'text/html')
-
+    def render_template(self):
         template = self.envirenemnt.get_template(self.template_route)
         if self.variables_dict is not None:
             output = template.render(self.variables_dict)
         else:
             output = template.render()
-
-        return output, False
+        return output

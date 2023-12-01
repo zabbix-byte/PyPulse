@@ -18,7 +18,7 @@ setup(
     install_requires=['cefpython3==66.1', 'Jinja2==3.1.2', 'wxPython==4.2.1'],
     classifiers=[
         # Chose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" as the current state of your package
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         # Define that your audience are developers
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Build Tools',

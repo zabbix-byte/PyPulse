@@ -12,7 +12,7 @@ ROUTE_TYPES = {
 }
 
 
-def get(route: str):
+def get(route: str) -> tuple:
     apps = applications()
     for app in apps:
         __modules = modules(Vars.APLICATION_PATH +
@@ -54,4 +54,3 @@ def get(route: str):
                     continue
 
                 return view, None
-    return

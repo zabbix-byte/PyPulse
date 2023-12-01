@@ -1,3 +1,1 @@
-from .setview import view
-from .setview import SetView
-from .callview import CallView
+from pypulse.View.decorators.route import view

@@ -1,8 +1,8 @@
 # **<img src="https://github.com/zabbix-byte/PyPulse/blob/main/logo.png" height="48px"></img> PyPulse** 
 
-
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Python Version](https://img.shields.io/badge/Python-3.8-blue)](https://www.python.org/downloads/)
+![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fzabbix-byte%2FPyPulse%2F&countColor=%23263759)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge&logo=windows&logoColor=white)](https://opensource.org/licenses/MIT)
+[![Python Version](https://img.shields.io/badge/Python-3.8-blue?style=for-the-badge&logo=windows&logoColor=white)](https://www.python.org/downloads/)
 
 
 

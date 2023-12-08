@@ -6,12 +6,9 @@
 
 
 
-**Please Note**: PyPulse is currently under active development, and some features may be incomplete or subject to change. We appreciate your interest and patience as we work to improve and enhance this project, if you appreciate the project, kindly consider giving it a star. Your support through stars helps us gauge the level of backing for the project.
+**Please Note**: PyPulse is in the midst of dynamic development, and certain features may still be in progress or subject to change. We value your interest and patience as we strive to enhance and refine this project. If you find value in PyPulse, please consider showing your support by giving it a star. Your use of stars serves as a valuable indicator of the project's backing, and we are grateful for your contribution.
 
 ![](https://github.com/zabbix-byte/PyPulse/blob/main/How.png)
-
-
-
 
 ## 📚 Documentation
 

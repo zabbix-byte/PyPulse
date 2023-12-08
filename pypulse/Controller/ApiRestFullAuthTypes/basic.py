@@ -25,7 +25,9 @@ class Basic(ApiRestMethods):
         self.__login_token_key = login_token_key
 
     def __get_bearer(self):
-        return {self.__bearer_header: f'{self.__bearer_key} {self.__access_token}'}
+        if self.__bearer:
+            return {self.__bearer_header: f'{self.__bearer_key} {self.__access_token}'}
+        return {}
 
     def login(self, username: str, password: str, headers: dict = {}):
         req = self.__api_session.post(
@@ -52,10 +54,30 @@ class Basic(ApiRestMethods):
         return
 
     def logout(self):
-        if self.__bearer:
-            headers = self.__get_bearer()
-
         self.__api_session.get(
             f'{self.__url}{self.__logout_url}',
-            headers=headers
+            headers=self.__get_bearer()
         )
+
+    def get_data(self, endpoint: str, filters: dict = None) -> dict:
+        if filters is None:
+            req = self.__api_session.get(
+                f'{self.__url}{endpoint}',
+                headers=self.__get_bearer()
+            )
+
+        else:
+            filters_string = ''
+            for i in filters:
+                filters_string += f'{i}{filters["spacer"]}{filters["type"]}{filters["assign"]}{filters["value"]}&'
+
+            filters_string = filters_string[0:-1]
+
+            req = self.__api_session.get(
+                f'{self.__url}{endpoint}?{filters_string}',
+                headers=self.__get_bearer()
+            )
+        if req.status_code > 299:
+            return req.status_code
+
+        return json.loads(req.content)

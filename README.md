@@ -6,10 +6,12 @@
 
 
 
-
-**PyPulse** is an open-source project that simplifies the creation of desktop applications based on Chromium, using a template-based architecture. Whether you're building a web-based desktop app, a custom browser, or need to embed web content into your Python application, PyPulse provides an easy and efficient way to get started.
-
 **Please Note**: PyPulse is currently under active development, and some features may be incomplete or subject to change. We appreciate your interest and patience as we work to improve and enhance this project.
+
+![](https://github.com/zabbix-byte/PyPulse/blob/main/How.png)
+
+
+
 
 ## 📚 Documentation
 

@@ -1,4 +1,4 @@
-# **<img src="https://github.com/zabbix-byte/PyPulse/blob/main/logo.png" height="48px"></img> PyPulse** 
+# **PyPulse** 
 
 ![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fzabbix-byte%2FPyPulse%2F&countColor=%23263759)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge&logo=windows&logoColor=white)](https://opensource.org/licenses/MIT)

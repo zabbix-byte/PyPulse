@@ -6,7 +6,7 @@
 
 
 
-**Please Note**: PyPulse is currently under active development, and some features may be incomplete or subject to change. We appreciate your interest and patience as we work to improve and enhance this project.
+**Please Note**: PyPulse is currently under active development, and some features may be incomplete or subject to change. We appreciate your interest and patience as we work to improve and enhance this project, if you appreciate the project, kindly consider giving it a star. Your support through stars helps us gauge the level of backing for the project.
 
 ![](https://github.com/zabbix-byte/PyPulse/blob/main/How.png)
 

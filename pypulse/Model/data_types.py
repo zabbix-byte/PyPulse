@@ -7,7 +7,7 @@ class String:
         self.max_length = max_length
 
     def parse(self, string: str):
-        return string[0:self.max_length]
+        return string[0 : self.max_length]
 
 
 class Integer:
@@ -28,18 +28,14 @@ class Float:
         if type(float_number) is float:
             float_number = str(float_number)
 
-        if ',' in float_number:
-            float_number = float_number.replace(
-                '.', '')
-            float_number = float_number.replace(
-                ',', '.')
+        if "," in float_number:
+            float_number = float_number.replace(".", "")
+            float_number = float_number.replace(",", ".")
 
-        float_number = float(
-            float_number)
+        float_number = float(float_number)
 
         if self.max_length_decimal is not -1:
-            float_number = float(round(
-                float_number, self.max_length_decimal))
+            float_number = float(round(float_number, self.max_length_decimal))
 
         return float_number
 
@@ -51,7 +47,7 @@ class Bool:
     def parse(self, bool_value: str):
         if type(bool_value) is bool:
             return bool_value
-        if bool_value.lower() == 'true':
+        if bool_value.lower() == "true":
             return True
         return False
 
@@ -61,8 +57,7 @@ class DateTime:
         self.format = format
 
     def parse(self, date: str):
-        return datetime.datetime.strptime(
-            date, self.format)
+        return datetime.datetime.strptime(date, self.format)
 
 
 class Date:
@@ -70,8 +65,7 @@ class Date:
         self.format = format
 
     def parse(self, date: str):
-        return datetime.datetime.strptime(
-            date, self.format).date()
+        return datetime.datetime.strptime(date, self.format).date()
 
 
 class Json:
@@ -82,3 +76,13 @@ class Json:
         if type(json_data) is dict:
             return json_data
         return json.loads(json_data)
+
+
+class List:
+    def __init__(self) -> None:
+        pass
+
+    def parse(self, list_data: str):
+        if type(list_data) is list:
+            return list_data
+        return json.loads(list_data)

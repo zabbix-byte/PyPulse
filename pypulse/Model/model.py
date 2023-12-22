@@ -1,4 +1,4 @@
-from .get import View
+from .view import View
 
 
 class Property:
@@ -15,6 +15,13 @@ class Model:
         if not cls:
             return
         return View(model=cls)
+
+    @classmethod
+    def body(cls, body_data: dict):
+        if not cls:
+            return
+        cls.Meta.body = body_data
+        return cls
 
     class Meta:
         pass

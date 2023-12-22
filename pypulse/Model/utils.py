@@ -1,5 +1,5 @@
 def get_all_property_model(cls: object) -> list:
-    return [property for property in dir(cls) if '__' != property[0:2] and property not in ['view', 'Meta']]
+    return [property for property in dir(cls) if '__' != property[0:2] and property not in ['view', 'Meta', 'body']]
 
 
 def get_instance_property_value(cls: object, properties: list) -> dict:

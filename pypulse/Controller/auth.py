@@ -11,3 +11,11 @@ def register(username: str, password: str, **kwargs):
 
 def logout():
     return BackendInstance.instance.logout()
+
+
+def set_manual_bearer(token: str):
+    return BackendInstance.instance.set_manual_bearer(token)
+
+
+def authenticated():
+    return BackendInstance.instance.authenticated()

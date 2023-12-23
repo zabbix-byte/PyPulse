@@ -13,7 +13,7 @@ class Redirect():
             print(f'If you want to reload the current view, use `Reload`.')
             exit(1)
 
-        request.send_response(301)
+        request.send_response(307)
         request.send_header(
-            'Location', f'http://localhost:{Vars.INTERNAL_HTTP_SERVER_PORT}' + self.path)
+            'Location', self.path)
         return None, True

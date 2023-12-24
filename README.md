@@ -14,17 +14,23 @@
 
 For detailed instructions and more information about PyPulse, please refer to the [official documentation](https://github.com/zabbix-byte/PyPulse/wiki).
 
-## 🚀 Getting Started
+## Contributing 🤝
+We welcome contributions from the community. If you'd like to contribute to mytool, please follow these guidelines:
 
-1. **Using pip install the library**
-```bash
-pip install python-pulse
-```
+- Fork the repository.
+- Make your changes.
+- Submit a pull request.
 
-2. **Create a new Project**
-```bash
-pypulse-manage --create_project YourProjectName
-```
+## 👥 Contributors
+<a href="https://github.com/zabbix-byte/PyPulse/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=zabbix-byte/PyPulse" />
+</a>
+
+## 🙏 Projects Using PyPulse 
+
+1. **[Talk with Cletus Spuckler](https://github.com/zabbix-byte/Talk-with-Cletus-Spuckler)** - This application serves as a small project designed to evaluate the capabilities of the PyPulse framework.
+
+Feel free to add your project to the list! If you're using PyPulse in your project, submit a pull request to add it to this list.
 
 ## 📜 License
 
@@ -36,6 +42,4 @@ If you have any questions, suggestions, or feedback, please don't hesitate to re
 
 We hope PyPulse accelerates your desktop application development and simplifies the integration of web content into your Python projects. Happy coding! 😎🚀
 
-<a href="https://github.com/zabbix-byte/PyPulse/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=zabbix-byte/PyPulse" />
-</a>
+

@@ -17,7 +17,7 @@ class Reload:
                 f'Path `{request.path}` returns reload in a loop (infinite recursion).')
             exit(1)
 
-        request.send_response(307)
+        request.send_response(302)
         request.send_header(
             'Location', request.path)
         return None, True

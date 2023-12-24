@@ -35,3 +35,7 @@ PyPulse is licensed under the MIT License. See the [LICENSE](LICENSE) file for d
 If you have any questions, suggestions, or feedback, please don't hesitate to reach out to us at [zabbix@ztrunk.space](mailto:zabbix@ztrunk.space).
 
 We hope PyPulse accelerates your desktop application development and simplifies the integration of web content into your Python projects. Happy coding! 😎🚀
+
+<a href="https://github.com/zabbix-byte/PyPulse/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=zabbix-byte/PyPulse" />
+</a>

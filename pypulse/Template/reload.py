@@ -17,7 +17,7 @@ class Reload:
                 f'Path `{request.path}` returns reload in a loop (infinite recursion).')
             exit(1)
 
-        request.send_response(301)
+        request.send_response(307)
         request.send_header(
-            'Location', f'http://localhost:{Vars.INTERNAL_HTTP_SERVER_PORT}' + request.path)
+            'Location', request.path)
         return None, True

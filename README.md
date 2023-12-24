@@ -28,7 +28,7 @@ We welcome contributions from the community. If you'd like to contribute to myto
 
 ## 🙏 Projects Using PyPulse 
 
-1. **[Talk with Cletus Spuckler](https://github.com/zabbix-byte/Talk-with-Cletus-Spuckler)** - This application serves as a small project designed to evaluate the capabilities of the PyPulse framework.
+1. **[Talk with Cletus Spuckler](https://github.com/zabbix-byte/Talk-with-Cletus-Spuckler)** - The Cletus Spuckler ChatGPT with Memory desktop application is a delightful and entertaining software that brings the eccentric charm of Cletus Spuckler from The Simpsons directly to your desktop. This application utilizes the power of OpenAI's GPT-3.5 language model, offering users a dynamic and engaging conversational experience enriched by Cletus's distinctive personality and and remember the your conversation.
 
 Feel free to add your project to the list! If you're using PyPulse in your project, submit a pull request to add it to this list.
 

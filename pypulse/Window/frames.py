@@ -58,9 +58,9 @@ class BrowserFrame(wx.Frame):
         if log_file:
             self.browser.config['log_file'] = log_file
 
-        self.width, self.height = scale_window_size_for_high_dpi(self.browser.os,
-                                                                 self.width,
-                                                                 self.height)
+        self.adapt_width, self.adapt_height = scale_window_size_for_high_dpi(self.browser.os,
+                                                                             self.width,
+                                                                             self.height)
 
         wx.Frame.__init__(
             self,
@@ -68,8 +68,9 @@ class BrowserFrame(wx.Frame):
             id=wx.ID_ANY,
 
             title=title,
-            size=(self.width, self.height),
         )
+        width, height = self.FromDIP(wx.Size(self.width, self.height))
+        self.SetClientSize(width, height)
 
         if border_less:
             self.SetWindowStyle(wx.NO_BORDER)
@@ -77,10 +78,7 @@ class BrowserFrame(wx.Frame):
         if self.browser.os == 'Linux':
             cefpython.WindowUtils.InstallX11ErrorHandlers()
 
-        self.panel = wx.Panel(self, size=(
-            self.width, self.height), pos=(0, 32))
-
-        width, height = self.panel.GetClientSize().Get()
+        self.panel = wx.Panel(self)
         self.browser.window.SetAsChild(self.panel.GetHandle(),
                                        [0, 0, width, height])
 

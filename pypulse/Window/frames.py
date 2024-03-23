@@ -45,7 +45,11 @@ class BrowserFrame(wx.Frame):
                  icon: str = None,
                  debug: bool = False,
                  log_file: bool = None,
-                 border_less: bool = True) -> None:
+                 border_less: bool = True,
+                 maximize: bool = None,
+                 minimize: bool = None,
+                 caption = None) -> None:
+
         self.title = title
         self.icon = icon
         self.url = url
@@ -72,6 +76,18 @@ class BrowserFrame(wx.Frame):
         width, height = self.FromDIP(wx.Size(self.width, self.height))
         self.SetClientSize(width, height)
 
+        style = wx.DEFAULT_FRAME_STYLE
+        if maximize:
+            style = style & (~wx.MAXIMIZE_BOX)
+
+        if minimize:
+            style = style & (~wx.MINIMIZE_BOX)
+        
+        self.SetWindowStyle(style)
+
+        if caption:
+            self.SetWindowStyle(wx.CAPTION)
+
         if border_less:
             self.SetWindowStyle(wx.NO_BORDER)
 
@@ -93,10 +109,8 @@ class BrowserFrame(wx.Frame):
 
         log(LogTypes.SUCCESS, 'Window added')
 
-        
-
         self.browser.open()
-        os.system('clear' if self.browser.os != 'Windows' else 'cls')
+        # os.system('clear' if self.browser.os != 'Windows' else 'cls')
 
         log(LogTypes.INFO, 'Browser open')
 

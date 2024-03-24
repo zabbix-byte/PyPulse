@@ -3,6 +3,9 @@ from abc import ABC, abstractmethod
 from enum import Enum
 from platform import system
 
+if system() == "Windows":
+    import ctypes
+
 from cefpython3 import cefpython
 
 
@@ -46,6 +49,7 @@ class CEF(ABC):
         self.event(Event.BROWSER_BEFORE)
         self.instance = cefpython.CreateBrowserSync(*self.args, 
                                                     **self.kwargs)
+        
         self.event(Event.BROWSER_AFTER)
 
     def __initialize(self):
@@ -53,6 +57,7 @@ class CEF(ABC):
         cefpython.Initialize(self.config)
 
         if self.os == 'Windows':
+            ctypes.windll.shcore.SetProcessDpiAwareness(0)
             cefpython.DpiAware.EnableHighDpiSupport()
 
     def open(self):
@@ -106,7 +111,7 @@ class Browser(CEF):
         def OnGotFocus(self, browser):
             if system() == 'Linux':
                 browser.SetFocus(True)
-
+                
     def event(self, type: Event) -> None:
         """
         Event handler for CEF.

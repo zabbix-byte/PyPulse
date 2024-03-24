@@ -7,6 +7,8 @@ from enum import Enum
 class Colors:
     RESET = '\033[0m'
 
+    BOLD = '\033[1m'
+
     BRIGHT_CYAN = '\033[96m'
     BRIGHT_BLUE = '\033[94m'
     BRIGHT_GREEN = '\033[92m'
@@ -19,6 +21,7 @@ class LogTypes(Enum):
     LOADING = 'LOADING'
     SUCCESS = 'SUCCESS'
     WARNING = 'WARNING'
+    DEBUG = 'DEBUG'
 
 
 def log(type: LogTypes, message: str, **settings):
@@ -35,6 +38,9 @@ def log(type: LogTypes, message: str, **settings):
 
     elif type is LogTypes.WARNING:
         prefix += f' {Colors.BRIGHT_RED}WARNING  '
+    
+    elif type is LogTypes.DEBUG:
+        prefix += f' {Colors.BOLD}DEBUG    '
 
     message_color = Colors.RESET
 

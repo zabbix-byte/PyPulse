@@ -9,7 +9,7 @@ with open("README.md", "r", encoding="utf-8") as readme_file:
 setup(
     name='python-pulse',
     packages=find_packages(),
-    version='0.2.3',
+    version='0.2.4',
     description='Python, create desktop applications based on Chromium',
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -24,6 +24,7 @@ setup(
         'Topic :: Software Development :: Build Tools',
         'License :: OSI Approved :: MIT License',   # Again, pick a license
         'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
     ],
     entry_points={
         'console_scripts': [

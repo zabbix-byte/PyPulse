@@ -21,8 +21,8 @@ class App(wx.App):
                              log_file=self.kwargs.get('debug_file_name'),
                              border_less=self.kwargs.get('border_less'),
                              caption = self.kwargs.get('caption'),
-                             maximize = self.kwargs.get('maximize'),
-                             minimize = self.kwargs.get('minimize'))
+                             maximize = self.kwargs.get('titlebar_no_button_maximize'),
+                             minimize = self.kwargs.get('titlebar_no_button_minimize'))
 
         log(LogTypes.SUCCESS, 'CEF initialized')
         print()

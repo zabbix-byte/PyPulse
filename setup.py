@@ -9,11 +9,11 @@ with open("README.md", "r", encoding="utf-8") as readme_file:
 setup(
     name='python-pulse',
     packages=find_packages(),
-    version='0.2.4',
-    description='Python, create desktop applications based on Chromium',
+    version='0.2.5',
+    description='Open-source project that simplifies the creation of desktop applications based on Chromium',
     long_description=long_description,
     long_description_content_type="text/markdown",
-    author='zabbix-byte',
+    author='Vasile Ovidiu Ichim',
     license='MIT',
     install_requires=['cefpython3==66.1', 'Jinja2==3.1.2', 'wxPython==4.2.1'],
     classifiers=[

@@ -7,6 +7,7 @@
 [![Python Version](https://img.shields.io/badge/Python-3.9-blue?style=for-the-badge&logo=windows&logoColor=white)](https://www.python.org/downloads/)
 [![Github-sponsors](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=white)](https://github.com/sponsors/zabbix-byte)
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+![pypi](https://img.shields.io/pypi/dm/python-pulse?style=for-the-badge&logo=windows&logoColor=white)
 
 **Please Note**: PyPulse is in the midst of dynamic development, and certain features may still be in progress or subject to change. We value your interest and patience as we strive to enhance and refine this project. If you find value in PyPulse, please consider showing your support by giving it a star. Your use of stars serves as a valuable indicator of the project's backing, and we are grateful for your contribution.
 

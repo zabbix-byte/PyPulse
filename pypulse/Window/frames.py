@@ -48,7 +48,9 @@ class BrowserFrame(wx.Frame):
                  border_less: bool = True,
                  maximize: bool = None,
                  minimize: bool = None,
-                 caption = None) -> None:
+                 caption = None,
+                 resize = True
+                 ) -> None:
 
         self.title = title
         self.icon = icon
@@ -82,6 +84,10 @@ class BrowserFrame(wx.Frame):
 
         if minimize:
             style = style & (~wx.MINIMIZE_BOX)
+
+        if not resize:
+            style = style & ~(wx.RESIZE_BORDER | wx.MAXIMIZE_BOX)
+
         
         self.SetWindowStyle(style)
 

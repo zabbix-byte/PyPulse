@@ -15,14 +15,12 @@ setup(
     long_description_content_type="text/markdown",
     author='Vasile Ovidiu Ichim',
     license='MIT',
-    install_requires=['cefpython3==66.1', 'Jinja2==3.1.2', 'wxPython==4.2.1'],
+    install_requires=['cefpython3==66.1', 'Jinja2==3.1.2', 'wxPython==4.2.1', 'requests'],
     classifiers=[
-        # Chose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" as the current state of your package
-        'Development Status :: 4 - Beta',
-        # Define that your audience are developers
+        'Development Status :: 5 - Stable',
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Build Tools',
-        'License :: OSI Approved :: MIT License',   # Again, pick a license
+        'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
     ],

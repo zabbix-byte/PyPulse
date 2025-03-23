@@ -22,7 +22,9 @@ class App(wx.App):
                              border_less=self.kwargs.get('border_less'),
                              caption = self.kwargs.get('titlebar_caption'),
                              maximize = self.kwargs.get('titlebar_no_button_maximize'),
-                             minimize = self.kwargs.get('titlebar_no_button_minimize'))
+                             minimize = self.kwargs.get('titlebar_no_button_minimize'),
+                             resize = self.kwargs.get('resize', True)
+                             )
 
         log(LogTypes.SUCCESS, 'CEF initialized')
         print()

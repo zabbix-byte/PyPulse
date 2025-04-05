@@ -61,6 +61,7 @@ class BrowserFrame(wx.Frame):
 
         self.browser.config['product_version'] = 'PyPulse/0.1.9'
         self.browser.config['debug'] = debug
+        self.browser.config['context_menu'] = dict(enabled=debug)
         if log_file:
             self.browser.config['log_file'] = log_file
 
@@ -116,7 +117,6 @@ class BrowserFrame(wx.Frame):
         log(LogTypes.SUCCESS, 'Window added')
 
         self.browser.open()
-        # os.system('clear' if self.browser.os != 'Windows' else 'cls')
 
         log(LogTypes.INFO, 'Browser open')
 

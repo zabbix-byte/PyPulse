@@ -33,7 +33,7 @@ class Request(http.server.SimpleHTTPRequestHandler):
 
         self.response = view[0](request) if not view[1] else view[0](request, **view[1])
 
-        if type(self.response).__name__ not in ["Redirect", "RenderTemplate", "Reload"]:
+        if type(self.response).__name__ not in ["Redirect", "RenderTemplate", "Reload", "RenderJson"]:
             return False
 
         return True

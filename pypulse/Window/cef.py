@@ -90,6 +90,17 @@ class CEF(ABC):
         ...
  
 
+class Handler:
+        """
+        See [CEFPython handlers](https://github.com/cztomczak/cefpython/blob/master/api/API-categories.md#client-handlers-interfaces) if you want to check all the 
+        handlers currently available.
+        """
+
+        def OnGotFocus(self, browser):
+            if system() == 'Linux':
+                browser.SetFocus(True)
+
+
 class Browser(CEF):
     """
     A more friendly way to manage CEF browser.
@@ -102,15 +113,6 @@ class Browser(CEF):
                          window_info=self.window, 
                          url=url, 
                          *args, **kwargs)
-        
-    class Handler:
-        """
-        See [CEFPython handlers](https://github.com/cztomczak/cefpython/blob/master/api/API-categories.md#client-handlers-interfaces) if you want to check all the 
-        handlers currently available.
-        """
-        def OnGotFocus(self, browser):
-            if system() == 'Linux':
-                browser.SetFocus(True)
                 
     def event(self, type: Event) -> None:
         """
@@ -119,4 +121,4 @@ class Browser(CEF):
         """
         if type is not Event.BROWSER_AFTER:
             return
-        self.instance.SetClientHandler(self.Handler())
+        self.instance.SetClientHandler(Handler())

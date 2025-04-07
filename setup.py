@@ -9,7 +9,7 @@ with open("README.md", "r", encoding="utf-8") as readme_file:
 setup(
     name='python-pulse',
     packages=find_packages(),
-    version='0.3.2',
+    version='0.4.0',
     description='Open-source project that simplifies the creation of desktop applications based on Chromium',
     long_description=long_description,
     long_description_content_type="text/markdown",
